@@ -141,9 +141,6 @@ var exponent = function(base, exp) {
     if (exp < 0) {
         return 1 / exponent(base, -1 * exp);
     }
-
-
-
 };
 
 // 8. Determine if a number is a power of two.
@@ -151,14 +148,41 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+    if (n === 1) {
+        return true;  
+    } else if (n >= 2) {
+        return powerOfTwo(n / 2);
+    } else {
+        return false;
+    }
 };
+  
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+    if (string === "") {
+        return "";
+    }
+    else
+    return reverse(string.substr(1)) + string.charAt(0);
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+
+    string = string.toLowerCase();
+    string.replace(/ /g, "");
+
+    if (string.length === 1) {
+        return true;
+    }
+    if (string[0] === string[string.length - 1] && string.length > 1) {
+        palindrome(string.substring(1, string.length -1)) 
+        return true
+      }else{
+        return false
+      }
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
